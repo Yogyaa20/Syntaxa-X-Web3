@@ -1,5 +1,7 @@
 import "dotenv/config";
 import hardhatEthers from "@nomicfoundation/hardhat-ethers";
+import hardhatMocha from "@nomicfoundation/hardhat-mocha";
+import hardhatChaiMatchers from "@nomicfoundation/hardhat-ethers-chai-matchers";
 import { defineConfig } from "hardhat/config";
 
 // Strip leading 0x if present — Hardhat v3 wants a raw hex string
@@ -13,7 +15,7 @@ const SEPOLIA_RPC_URL: string =
   "https://ethereum-sepolia-rpc.publicnode.com";
 
 export default defineConfig({
-  plugins: [hardhatEthers],
+  plugins: [hardhatEthers, hardhatMocha, hardhatChaiMatchers],
 
   solidity: {
     version: "0.8.34",
